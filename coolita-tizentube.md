@@ -1,6 +1,7 @@
 # Panduan Lengkap: Integrasi Coolita OS Smart TV dengan TizenTube (Ad-Free YouTube TV)
 
-Panduan ini khusus untuk topologi sederhana: **Hanya MiniPC (Linux) dan TV Coolita OS**. Tidak membutuhkan router OpenWrt atau server Pi-hole terpisah. Seluruh service (DNS Server, Web Trampoline, dan TizenTube Proxy) berjalan langsung di dalam satu unit **MiniPC**.
+Panduan ini khusus untuk topologi sederhana: **Hanya MiniPC (Linux) dan TV Coolita OS**. 
+Seluruh service (DNS Server, Web Trampoline, dan TizenTube Proxy) berjalan langsung di dalam satu unit **MiniPC**.
 
 ---
 
