@@ -3,6 +3,8 @@
 Panduan ini khusus untuk topologi sederhana: **Hanya MiniPC (Linux) dan TV Coolita OS**. 
 Seluruh service (DNS Server, Web Trampoline, dan TizenTube Proxy) berjalan langsung di dalam satu unit **MiniPC**.
 
+Sebagian code diambil dari github TizenTubeCobalt : https://github.com/reisxd/TizenTubecobalt
+
 ---
 
 ## 1. Topologi & Kebutuhan Perangkat
