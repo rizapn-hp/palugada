@@ -28,11 +28,12 @@ flowchart TD
     DNS -->|"2. Return IP MiniPC: 192.168.1.53"| TV
 
     TV -->|"3. GET /tvos/direct-tab?tabType=18"| NGINX
-    NGINX -- "Cocok tabType=18" -->|"4a. Kirim custom_direct_tab_18.json"| TV
-    NGINX -- "URL API Coocaa Lainnya" -->|"4b. Forward transparan (proxy_pass)"| CLOUD
-    CLOUD -->|"Kembalikan respons asli"| NGINX --> TV
+    NGINX -->|"4a. Cocok tabType=18: Kirim custom_direct_tab_18.json"| TV
+    NGINX -->|"4b. API Coocaa Lainnya: Forward transparan"| CLOUD
+    CLOUD -->|"5. Return response asli"| NGINX
+    NGINX --> TV
 
-    TV -->|"5. Klik Icon (YouTube / Vision+ / Games)"| LOCAL_APPS
+    TV -->|"6. Klik Icon (YouTube / Vision+ / Games)"| LOCAL_APPS
 ```
 
 ---
