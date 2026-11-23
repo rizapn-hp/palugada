@@ -3,31 +3,44 @@
 Solusi self-hosted dua arah (2-Way) untuk menerima dan membalas email domain pribadi langsung melalui Telegram tanpa perlu membuka port 25 di server lokal / MiniPC dan tanpa perlu menjalankan mail server penuh (Postfix/Dovecot).
 
 ```mermaid
-flowchart TD
-    SENDER["Pengirim Email Luar\n(client@external.com)"]
-    CF_MAIL["Cloudflare Email Routing\n(MX Records: yourdomain.com)"]
-    CF_WORKER["Cloudflare Email Worker\n(Stream Raw RFC822)"]
-    TUNNEL["Cloudflare Tunnel\n(cloudflared daemon)"]
-    GATEWAY["Gateway Service di MiniPC\n(FastAPI :8765 + Bot Polling)"]
-    DB[("SQLite Database\n(Thread & Message Mapping)")]
-    TELEGRAM["Aplikasi Telegram\n(User Chat / Smartphone)"]
-    RELAY["SMTP / API Relay\n(Brevo / Resend / Gmail)"]
+flowchart LR
+    SENDER["📧 Pengirim Email Luar<br/>(client@external.com)"]
+    
+    subgraph CLOUDFLARE ["☁️ Cloudflare Edge (Zero Port Opening)"]
+        direction LR
+        CF_MAIL["Cloudflare Email Routing<br/>(MX: yourdomain.com)"]
+        CF_WORKER["Cloudflare Email Worker<br/>(Stream Raw RFC822)"]
+        TUNNEL["Cloudflare Tunnel<br/>(cloudflared daemon)"]
+    end
+
+    subgraph MINIPC ["🖥️ Server Lokal / MiniPC (Docker)"]
+        direction TB
+        GATEWAY["Gateway Service<br/>(FastAPI :8765 + Bot Polling)"]
+        DB[("SQLite Database<br/>(Thread & MsgID Mapping)")]
+    end
+
+    TELEGRAM["📱 Aplikasi Telegram<br/>(User Chat / Smartphone)"]
+    RELAY["🚀 SMTP / API Relay<br/>(Brevo / Resend / Gmail)"]
 
     %% Alur Inbound (Email Masuk)
     SENDER -->|"1. Kirim email ke hello@yourdomain.com"| CF_MAIL
     CF_MAIL -->|"2. Trigger Worker"| CF_WORKER
-    CF_WORKER -->|"3. POST raw RFC822 via Tunnel"| TUNNEL
-    TUNNEL -->|"4. Forward ke http://localhost:8765"| GATEWAY
-    GATEWAY -->|"5a. Simpan metadata & MsgID"| DB
-    GATEWAY -->|"5b. Kirim notifikasi pesan HTML"| TELEGRAM
+    CF_WORKER -->|"3. POST raw RFC822"| TUNNEL
+    TUNNEL -->|"4. Forward ke :8765"| GATEWAY
+    GATEWAY <-->|"5a / 7. Simpan & Lookup MsgID"| DB
+    GATEWAY -->|"5b. Notifikasi pesan HTML"| TELEGRAM
 
     %% Alur Outbound (Balas Email)
-    TELEGRAM -->|"6. User swipe 'Reply' & ketik teks"| GATEWAY
-    GATEWAY -->|"7. Lookup thread ID & pengirim asli"| DB
-    GATEWAY -->|"8. Dispatch email balasan + In-Reply-To"| RELAY
+    TELEGRAM -->|"6. Swipe 'Reply' & ketik balasan"| GATEWAY
+    GATEWAY -->|"8. Dispatch balasan + In-Reply-To"| RELAY
     RELAY -->|"9. Kirim email balasan (Re: ...)"| SENDER
-```
 
+    %% Styling
+    style CLOUDFLARE fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    style MINIPC fill:#1e293b,stroke:#a855f7,stroke-width:2px,color:#f8fafc
+    style SENDER fill:#0f172a,stroke:#94a3b8,color:#f8fafc
+    style TELEGRAM fill:#0f172a,stroke:#22d3ee,color:#f8fafc
+    style RELAY fill:#0f172a,stroke:#fb923c,color:#f8fafc```
 ---
 
 ## ✨ Fitur Utama
