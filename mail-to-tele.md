@@ -40,7 +40,8 @@ flowchart LR
     style MINIPC fill:#1e293b,stroke:#a855f7,stroke-width:2px,color:#f8fafc
     style SENDER fill:#0f172a,stroke:#94a3b8,color:#f8fafc
     style TELEGRAM fill:#0f172a,stroke:#22d3ee,color:#f8fafc
-    style RELAY fill:#0f172a,stroke:#fb923c,color:#f8fafc```
+    style RELAY fill:#0f172a,stroke:#fb923c,color:#f8fafc
+```
 ---
 
 ## ✨ Fitur Utama
