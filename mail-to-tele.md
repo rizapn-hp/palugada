@@ -2,30 +2,30 @@
 
 Solusi self-hosted dua arah (2-Way) untuk menerima dan membalas email domain pribadi langsung melalui Telegram tanpa perlu membuka port 25 di server lokal / MiniPC dan tanpa perlu menjalankan mail server penuh (Postfix/Dovecot).
 
-```
-[ Pengirim Email ]
-       │
-       ▼ (Kirim email ke custom@yourdomain.com)
-[ Cloudflare Email Routing ]
-       │
-       ▼ (Trigger Email Worker: zero-dependency raw stream)
-[ Cloudflare Tunnel (cloudflared) ]
-       │
-       ▼ (HTTP POST message/rfc822)
-[ MiniPC / Server Lokal : FastAPI + Python-Telegram-Bot ]
-  ├── Simpan thread metadata (SQLite: MsgID ↔ Sender/Subject)
-  └── Format pesan HTML rapi
-       │
-       ▼ (Telegram Bot API)
-[ Chat / Grup Telegram Anda ]
-       │
-       ▼ (User swipe "Reply" di Telegram)
-[ Bot Gateway di MiniPC ]
-  ├── Ambil Message-ID asli dari database
-  └── Susun In-Reply-To & Subject "Re: ..."
-       │
-       ▼ (Kirim via Brevo SMTP Relay / Resend API)
-[ Pengirim Email Asli ]
+```mermaid
+flowchart TD
+    SENDER["Pengirim Email Luar\n(client@external.com)"]
+    CF_MAIL["Cloudflare Email Routing\n(MX Records: yourdomain.com)"]
+    CF_WORKER["Cloudflare Email Worker\n(Stream Raw RFC822)"]
+    TUNNEL["Cloudflare Tunnel\n(cloudflared daemon)"]
+    GATEWAY["Gateway Service di MiniPC\n(FastAPI :8765 + Bot Polling)"]
+    DB[("SQLite Database\n(Thread & Message Mapping)")]
+    TELEGRAM["Aplikasi Telegram\n(User Chat / Smartphone)"]
+    RELAY["SMTP / API Relay\n(Brevo / Resend / Gmail)"]
+
+    %% Alur Inbound (Email Masuk)
+    SENDER -->|"1. Kirim email ke hello@yourdomain.com"| CF_MAIL
+    CF_MAIL -->|"2. Trigger Worker"| CF_WORKER
+    CF_WORKER -->|"3. POST raw RFC822 via Tunnel"| TUNNEL
+    TUNNEL -->|"4. Forward ke http://localhost:8765"| GATEWAY
+    GATEWAY -->|"5a. Simpan metadata & MsgID"| DB
+    GATEWAY -->|"5b. Kirim notifikasi pesan HTML"| TELEGRAM
+
+    %% Alur Outbound (Balas Email)
+    TELEGRAM -->|"6. User swipe 'Reply' & ketik teks"| GATEWAY
+    GATEWAY -->|"7. Lookup thread ID & pengirim asli"| DB
+    GATEWAY -->|"8. Dispatch email balasan + In-Reply-To"| RELAY
+    RELAY -->|"9. Kirim email balasan (Re: ...)"| SENDER
 ```
 
 ---
