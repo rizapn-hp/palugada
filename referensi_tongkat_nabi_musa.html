@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tongkat Nabi Musa AS — Kajian Tafsir & Tarikh (Maktabah Syamilah)</title>
+  <style>
+    :root {
+      --bg: #f6f3ec;
+      --surface: #ffffff;
+      --surface-alt: #fbf9f5;
+      --ink: #1e2421;
+      --muted: #5b655f;
+      --border: #e2dacb;
+      --primary: #14533c;
+      --primary-soft: #e7f2ed;
+      --accent: #a66d1f;
+      --accent-soft: #fbf3e4;
+      --blue: #1e4b7a;
+      --blue-soft: #eaf1f8;
+      --purple: #5b3a7d;
+      --purple-soft: #f2ecf8;
+      --danger: #8b2e2e;
+      --danger-soft: #f9ebeb;
+      --shadow: 0 8px 24px rgba(24, 34, 29, 0.06);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    /* Sticky Nav */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 20px 64px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #103d2c 0%, #195e44 65%, #236f52 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .hero::after {
+      content: "عَصَا مُوسَى";
+      position: absolute;
+      right: 28px;
+      bottom: -10px;
+      font-family: 'Amiri', 'Traditional Arabic', serif;
+      font-size: 5.5rem;
+      color: rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.4px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+      line-height: 1.25;
+    }
+
+    .hero p {
+      margin: 0 0 22px;
+      max-width: 780px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .stat-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .stat-pill strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 2px;
+    }
+
+    .stat-pill span {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    /* Section Headings */
+    section {
+      margin-top: 34px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 2px 0 0;
+    }
+
+    /* Cards & Callouts */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .callout {
+      border-left: 5px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+    }
+
+    .callout strong {
+      color: #7c4f12;
+    }
+
+    /* Arabic Quote Box */
+    .arabic-box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-right: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin: 12px 0;
+    }
+
+    .arabic-text {
+      direction: rtl;
+      text-align: right;
+      font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
+      font-size: 1.32rem;
+      line-height: 1.9;
+      color: #12261e;
+      margin: 0 0 8px;
+    }
+
+    .arabic-trans {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+      margin: 0;
+      border-top: 1px dashed var(--border);
+      padding-top: 8px;
+    }
+
+    /* Interactive Diagram Wrapper */
+    .diagram-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 900px) {
+      .diagram-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .svg-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      overflow-x: auto;
+    }
+
+    .svg-node {
+      cursor: pointer;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    .svg-node:hover {
+      filter: brightness(0.97);
+    }
+
+    .svg-node.active rect {
+      stroke-width: 3px;
+      stroke: #0f3f2d;
+    }
+
+    .inspector-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .badge-green { background: var(--primary-soft); color: var(--primary); }
+    .badge-amber { background: var(--accent-soft); color: #8b5812; }
+    .badge-blue { background: var(--blue-soft); color: var(--blue); }
+    .badge-purple { background: var(--purple-soft); color: var(--purple); }
+    .badge-red { background: var(--danger-soft); color: var(--danger); }
+
+    /* Timeline Silsilah */
+    .timeline-toggle {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pill-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .pill-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .silsilah-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      position: relative;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.15s ease, border-color 0.2s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .step-card.selected {
+      border: 2px solid var(--primary);
+      background: #fcfefd;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    /* Tabs for 4 Trees */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .tab-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 10px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--muted);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(20, 83, 60, 0.22);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Quran Grid */
+    .quran-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 14px;
+    }
+
+    .ayah-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .ayah-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    /* Search & Table */
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 220px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.92rem;
+      background: var(--surface);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      padding: 13px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface-alt);
+      color: var(--primary);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fcfaf6; }
+
+    /* Accordion */
+    .accordion-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 15px 18px;
+      text-align: left;
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-trigger:hover { background: var(--surface-alt); }
+
+    .accordion-body {
+      display: none;
+      padding: 0 18px 16px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      border-top: 1px dashed var(--border);
+      padding-top: 12px;
+    }
+
+    .accordion-item.open .accordion-body { display: block; }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">📜 Riset Maktabah Syamilah: Tongkat Nabi Musa AS</div>
+      <nav class="nav-links">
+        <a href="#ringkasan">Ringkasan</a>
+        <a href="#diagram">Flowchart &amp; Silsilah</a>
+        <a href="#pohon">4 Pendapat Pohon</a>
+        <a href="#ayat">Peta Ayat</a>
+        <a href="#kitab">Direktori Kitab</a>
+        <a href="#ulama">Sikap Ulama</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="ringkasan">
+      <div class="hero-badge">Fokus Sumber: Maktabah Syamilah (shamela.ws) — Tafsir &amp; Tarikh</div>
+      <h1>Terbuat dari Kayu Apa Tongkat Nabi Musa AS?</h1>
+      <p>
+        Penelusuran komprehensif terhadap ayat-ayat Al-Qur'an, kitab-kitab <em>Tafsir bil-Ma'tsur</em>, <em>Tafsir bi ar-Ra'yi</em>, serta kitab-kitab <em>Tarikh</em> klasik dalam khazanah Maktabah Syamilah.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-pill">
+          <strong>Tidak Disebut Qath'i</strong>
+          <span>Al-Qur'an &amp; Hadis shahih tidak merinci jenis kayunya</span>
+        </div>
+        <div class="stat-pill">
+          <strong>4 Pendapat Turats</strong>
+          <span>'Ausaj, Ās al-Jannah, 'Ullaiq, dan Al-Lauz al-Murr</span>
+        </div>
+        <div class="stat-pill">
+          <strong>10 Ayat Al-Qur'an</strong>
+          <span>Menggunakan kata <em>'ashā</em> untuk tongkat Musa AS</span>
+        </div>
+        <div class="stat-pill">
+          <strong>10+ Kitab Klasik</strong>
+          <span>Ath-Thabari, Ibnu Katsir, Al-Baghawi, Al-Qurthubi, dll.</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="callout">
+      <strong>Kesimpulan Inti:</strong> Tidak ada dalil shahih dari Al-Qur'an maupun Sunnah Nabawiyah yang memastikan jenis kayu tongkat Nabi Musa AS. Seluruh penamaan pohon berasal dari <strong>atsar kalangan tabi'in, kitab tarikh, dan riwayat Israiliyyat</strong>. Dalam kitab <em>tafsir bil-ma'tsur</em>, pendapat yang paling kuat sanad atsarnya adalah pohon <strong>'Ausaj (العَوْسَج)</strong>; sedangkan dalam literatur <em>tarikh</em> dan kisah para nabi, sering disebut berasal dari <strong>Ās al-Jannah (آس الجنة)</strong>.
+    </div>
+
+    <!-- Section 1: Interactive Flowchart & Epistemology -->
+    <section id="diagram">
+      <div class="section-head">
+        <div>
+          <h2>1. Diagram Alur Sumber &amp; Derajat Riwayat</h2>
+          <p class="section-sub">Klik setiap kotak pada diagram di kiri untuk membaca penjelasan detail dan kitab rujukannya.</p>
+        </div>
+      </div>
+
+      <div class="diagram-grid">
+        <div class="svg-wrap">
+          <svg viewBox="0 0 680 430" width="100%" aria-label="Flowchart Sumber Riwayat Tongkat Nabi Musa">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#6b756f" />
+              </marker>
+            </defs>
+
+            <!-- Connectors -->
+            <path d="M 340 68 L 340 98" stroke="#6b756f" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+            <path d="M 340 98 L 125 98 L 125 130" stroke="#6b756f" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+            <path d="M 340 98 L 340 130" stroke="#6b756f" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+            <path d="M 340 98 L 555 98 L 555 130" stroke="#6b756f" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+            <!-- Branch 2 downward -->
+            <path d="M 340 205 L 340 232" stroke="#6b756f" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+            <path d="M 340 232 L 245 232 L 245 260" stroke="#6b756f" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+            <path d="M 340 232 L 425 232 L 425 260" stroke="#6b756f" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+            <!-- Branch 3 downward -->
+            <path d="M 555 205 L 555 260" stroke="#6b756f" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+            <path d="M 555 335 L 555 358" stroke="#6b756f" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+            <!-- Root Node -->
+            <g class="svg-node active" data-node="root">
+              <rect x="195" y="12" width="290" height="56" rx="12" fill="#14533c" />
+              <text x="340" y="36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="14">Pertanyaan: Kayu Asal Tongkat Musa AS</text>
+              <text x="340" y="55" text-anchor="middle" fill="#d9efe5" font-size="11.5">Peta Klasifikasi Dalil &amp; Literatur Maktabah Syamilah</text>
+            </g>
+
+            <!-- Col 1: Wahyu Qath'i -->
+            <g class="svg-node" data-node="wahyu">
+              <rect x="20" y="132" width="210" height="74" rx="12" fill="#e7f2ed" stroke="#14533c" stroke-width="1.8" />
+              <text x="125" y="156" text-anchor="middle" fill="#14533c" font-weight="700" font-size="13">1. Al-Qur'an &amp; Hadis Shahih</text>
+              <text x="125" y="175" text-anchor="middle" fill="#2d3b34" font-size="11.5">Menyebut "عَصَا" (tongkat) secara umum.</text>
+              <text x="125" y="192" text-anchor="middle" fill="#14533c" font-weight="600" font-size="11">Tidak menyebut jenis kayu/pohon</text>
+            </g>
+
+            <!-- Col 2: Tafsir bil-Ma'tsur -->
+            <g class="svg-node" data-node="tafsir">
+              <rect x="245" y="132" width="190" height="74" rx="12" fill="#eaf1f8" stroke="#1e4b7a" stroke-width="1.8" />
+              <text x="340" y="156" text-anchor="middle" fill="#1e4b7a" font-weight="700" font-size="13">2. Atsar Tafsir bil-Ma'tsur</text>
+              <text x="340" y="175" text-anchor="middle" fill="#2b3847" font-size="11.5">Riwayat tabi'in (Qatadah,</text>
+              <text x="340" y="192" text-anchor="middle" fill="#2b3847" font-size="11.5">Sa'id bin Jubair, Al-Hakam)</text>
+            </g>
+
+            <!-- Col 3: Tarikh & Israiliyyat -->
+            <g class="svg-node" data-node="tarikh">
+              <rect x="450" y="132" width="210" height="74" rx="12" fill="#fbf3e4" stroke="#a66d1f" stroke-width="1.8" />
+              <text x="555" y="156" text-anchor="middle" fill="#8b5812" font-weight="700" font-size="13">3. Tarikh &amp; Khabar Qishash</text>
+              <text x="555" y="175" text-anchor="middle" fill="#4f3b1f" font-size="11.5">Riwayat pewarisan dari Adam AS</text>
+              <text x="555" y="192" text-anchor="middle" fill="#4f3b1f" font-size="11.5">hingga Nabi Syu'aib AS (Israiliyyat)</text>
+            </g>
+
+            <!-- Leaf: Ausaj -->
+            <g class="svg-node" data-node="ausaj">
+              <rect x="165" y="262" width="160" height="74" rx="12" fill="#ffffff" stroke="#1e4b7a" stroke-width="1.8" />
+              <text x="245" y="286" text-anchor="middle" fill="#1e4b7a" font-weight="700" font-size="13">Pohon 'Ausaj (العوسج)</text>
+              <text x="245" y="304" text-anchor="middle" fill="#4a5550" font-size="11">Ath-Thabari, Abdurrazzaq,</text>
+              <text x="245" y="320" text-anchor="middle" fill="#4a5550" font-size="11">Ibnu Abi Hatim, Ad-Durr al-Mantsur</text>
+            </g>
+
+            <!-- Leaf: Ullaiq -->
+            <g class="svg-node" data-node="ullaiq">
+              <rect x="345" y="262" width="160" height="74" rx="12" fill="#ffffff" stroke="#5b3a7d" stroke-width="1.8" />
+              <text x="425" y="286" text-anchor="middle" fill="#5b3a7d" font-weight="700" font-size="13">Pohon 'Ullaiq (العليق)</text>
+              <text x="425" y="304" text-anchor="middle" fill="#4a5550" font-size="11">Ibnu Ishaq (Ath-Thabari),</text>
+              <text x="425" y="320" text-anchor="middle" fill="#4a5550" font-size="11">Al-Qurthubi (pohon wahyu)</text>
+            </g>
+
+            <!-- Leaf: As al-Jannah -->
+            <g class="svg-node" data-node="as">
+              <rect x="520" y="262" width="145" height="74" rx="12" fill="#ffffff" stroke="#a66d1f" stroke-width="1.8" />
+              <text x="592" y="286" text-anchor="middle" fill="#8b5812" font-weight="700" font-size="12.5">Ās al-Jannah (آس الجنة)</text>
+              <text x="592" y="304" text-anchor="middle" fill="#4a5550" font-size="11">Tarikh Ath-Thabari, Al-Kamil,</text>
+              <text x="592" y="320" text-anchor="middle" fill="#4a5550" font-size="11">Al-Baghawi, Ats-Tsa'labi</text>
+            </g>
+
+            <!-- Leaf: Lauz -->
+            <g class="svg-node" data-node="lauz">
+              <rect x="520" y="360" width="145" height="58" rx="12" fill="#f9ebeb" stroke="#8b2e2e" stroke-width="1.5" />
+              <text x="592" y="384" text-anchor="middle" fill="#8b2e2e" font-weight="700" font-size="12.5">Al-Lauz al-Murr (اللوز)</text>
+              <text x="592" y="402" text-anchor="middle" fill="#5f3b3b" font-size="10.8">Sebagian kisah populer/sekunder</text>
+            </g>
+
+            <!-- Bottom Synthesis Note inside SVG -->
+            <g class="svg-node" data-node="muhaqqiq">
+              <rect x="20" y="352" width="485" height="66" rx="12" fill="#f5f1e8" stroke="#c8bc9f" stroke-dasharray="5 3" stroke-width="1.5" />
+              <text x="262" y="376" text-anchor="middle" fill="#3a3f3c" font-weight="700" font-size="12.5">Sikap Muhaqqiq (Ar-Razi, Al-Qurthubi, Ibnu Katsir)</text>
+              <text x="262" y="395" text-anchor="middle" fill="#5b655f" font-size="11.2">Detail kayu tidak memiliki dalil qath'i; bukan bagian akidah wajib &amp; tidak memengaruhi hukum.</text>
+            </g>
+          </svg>
+        </div>
+
+        <aside class="inspector-panel" id="node-inspector">
+          <div>
+            <span class="badge badge-green" id="insp-badge">Ringkasan Peta Dalil</span>
+            <h3 id="insp-title" style="margin: 10px 0 8px;">Klik Node Diagram untuk Detail</h3>
+            <p id="insp-body" style="color: var(--muted); font-size: 0.94rem; margin: 0 0 12px;">
+              Diagram di samping membedakan secara tegas antara wahyu yang bersifat pasti (<em>qath'i</em>), atsar tafsir kalangan tabi'in, serta riwayat sejarah/Israiliyyat dalam kitab-kitab Maktabah Syamilah.
+            </p>
+            <div id="insp-extra" class="arabic-box" style="display: none;">
+              <p class="arabic-text" id="insp-arabic"></p>
+              <p class="arabic-trans" id="insp-trans"></p>
+            </div>
+          </div>
+          <div style="font-size: 0.83rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: 10px;">
+            <strong>Sumber:</strong> <span id="insp-sources">Seluruh kitab Tafsir &amp; Tarikh Maktabah Syamilah</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Silsilah Timeline -->
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>2. Alur Perjalanan Tongkat Menurut Kitab Tarikh &amp; Tafsir</h2>
+          <p class="section-sub">Pilih jalur riwayat untuk melihat bagaimana para sejarawan &amp; mufasir melacak asal tongkat Nabi Musa AS.</p>
+        </div>
+      </div>
+
+      <div class="timeline-toggle">
+        <button class="pill-btn active" data-track="tarikh-track">Jalur Riwayat Tarikh (Ās al-Jannah: Adam AS → Musa AS)</button>
+        <button class="pill-btn" data-track="maatsur-track">Jalur Riwayat Madyan/Thur ('Ausaj &amp; 'Ullaiq)</button>
+      </div>
+
+      <div class="card" id="track-display">
+        <div class="silsilah-steps" id="silsilah-container"></div>
+      </div>
+    </section>
+
+    <!-- Section 3: 4 Opinions Deep Dive -->
+    <section id="pohon">
+      <div class="section-head">
+        <div>
+          <h2>3. Analisis 4 Pendapat Jenis Pohon &amp; Kayu Tongkat</h2>
+          <p class="section-sub">Telusuri kutipan teks Arab langsung dan kitab rujukan masing-masing pendapat di Maktabah Syamilah.</p>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="tab-ausaj">🌿 1. Pohon 'Ausaj (العوسج)</button>
+        <button class="tab-btn" data-tab="tab-as">🌳 2. Ās al-Jannah (آس الجنة)</button>
+        <button class="tab-btn" data-tab="tab-ullaiq">🌵 3. Pohon 'Ullaiq (العليق)</button>
+        <button class="tab-btn" data-tab="tab-lauz">🌰 4. Al-Lauz al-Murr (اللوز المر)</button>
+      </div>
+
+      <!-- Tab 1: Ausaj -->
+      <div class="tab-panel active card" id="tab-ausaj">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+          <h3 style="margin:0;">Kayu Pohon <em>'Ausaj</em> (العَوْسَج — Semak Berduri Gurun / <em>Boxthorn</em>)</h3>
+          <span class="badge badge-blue">Terkuat dalam Tafsir bil-Ma'tsur</span>
+        </div>
+        <p>
+          <strong>'Ausaj</strong> (genus <em>Lycium</em>) adalah tumbuhan perdu/semak berduri berkayu keras yang tumbuh alami di wilayah gurun Arab, Sinai, dan Madyan. Pendapat ini memiliki sanad atsar paling populer di kalangan ulama tafsir yang menukil perkataan tabi'in.
+        </p>
+
+        <h4>Rujukan Utama di Maktabah Syamilah:</h4>
+        <div class="arabic-box">
+          <div style="font-size:0.84rem; font-weight:700; color:var(--primary); margin-bottom:6px;">
+            1. Tafsir Ath-Thabari (Jami' al-Bayan fi Ta'wil Ayi al-Qur'an) — QS. Al-Qashash: 30
+          </div>
+          <p class="arabic-text">«عَصَا مُوسَى مِنَ الْعَوْسَجِ، وَالشَّجَرَةُ مِنَ الْعَوْسَجِ»</p>
+          <p class="arabic-trans">Riwayat Qatadah rahimahullah: "Tongkat Musa berasal dari pohon 'ausaj, dan pohon [tempat Musa diseru Allah] juga dari 'ausaj."</p>
+        </div>
+
+        <div class="arabic-box">
+          <div style="font-size:0.84rem; font-weight:700; color:var(--primary); margin-bottom:6px;">
+            2. Ad-Durr al-Mantsur (Imam As-Suyuthi) — QS. Al-A'raf (menukil Ibnul Mundzir &amp; Ibnu Abi Hatim)
+          </div>
+          <p class="arabic-text">«كَانَتْ عَصَا مُوسَى مِنْ عَوْسَجٍ وَلَمْ يُسَخَّرِ الْعَوْسَجُ لِأَحَدٍ بَعْدَهُ»</p>
+          <p class="arabic-trans">Riwayat Al-Hakam bin 'Utaibah: "Tongkat Musa berasal dari pohon 'ausaj, dan pohon 'ausaj tidak pernah ditundukkan untuk seorang pun setelahnya."</p>
+        </div>
+
+        <ul>
+          <li><strong>Tafsir Abdurrazzaq:</strong> Menukil riwayat dari Qatadah bahwa tongkat Musa terbuat dari <em>'ausaj</em>.</li>
+          <li><strong>Tafsir Ibnu Abi Hatim</strong> (dan nukilan dalam pembahasan <em>Tafsir Ibnu Katsir</em>): Diriwayatkan pula dari <strong>Sa'id bin Jubair</strong> bahwa beliau berkata: <em>«كانت عصا موسى من عوسج»</em>.</li>
+        </ul>
+      </div>
+
+      <!-- Tab 2: As al-Jannah -->
+      <div class="tab-panel card" id="tab-as">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+          <h3 style="margin:0;">Pohon <em>Ās al-Jannah</em> (آس الجنة — Pohon Myrtus dari Surga)</h3>
+          <span class="badge badge-amber">Dominan di Kitab Tarikh &amp; Qishash</span>
+        </div>
+        <p>
+          <strong>Ās</strong> (<em>Myrtus</em> / myrtus) dikenal sebagai pohon berdaun hijau abadi dan berbau harum. Dalam literatur sejarah klasik dan sebagian tafsir, tongkat ini dikisahkan bukan kayu biasa di bumi, melainkan dibawa turun oleh <strong>Nabi Adam AS dari surga</strong> lalu diwariskan lintas generasi nabi hingga sampai ke tangan <strong>Nabi Syu'aib AS</strong>.
+        </p>
+
+        <div class="arabic-box">
+          <div style="font-size:0.84rem; font-weight:700; color:var(--primary); margin-bottom:6px;">
+            1. Tarikh Ath-Thabari (Tarikh ar-Rusul wa al-Muluk) &amp; Al-Muntazham (Ibnul Jauzi) — Bab Nabi Adam AS
+          </div>
+          <p class="arabic-text">«أُنْزِلَ مَعَهُ الْحَجَرُ الْأَسْوَدُ... وَعَصَا مُوسَى، وَكَانَتْ مِنْ آسِ الْجَنَّةِ، طُولُهَا عَشَرَةُ أَذْرُعٍ عَلَى طُولِ مُوسَى...»</p>
+          <p class="arabic-trans">Dinukil dari Ibnu Abbas RA: "Diturunkan bersama Adam Hajar Aswad... dan tongkat Musa, yang berasal dari pohon ās surga, panjangnya sepuluh hasta setinggi Nabi Musa..."</p>
+        </div>
+
+        <div class="arabic-box">
+          <div style="font-size:0.84rem; font-weight:700; color:var(--primary); margin-bottom:6px;">
+            2. Tafsir Ats-Tsa'labi (Al-Kasyf wa al-Bayan) &amp; Tafsir Al-Baghawi (Ma'alim at-Tanzil) — QS. Al-Baqarah: 60
+          </div>
+          <p class="arabic-text">«وَكَانَ مِنْ آسِ الْجَنَّةِ طُولُهُ عَشَرَةُ أَذْرُعٍ عَلَى طُولِ مُوسَى وَلَهُ شُعْبَتَانِ مُتَّقِدَتَانِ فِي الظُّلْمَةِ نُورًا وَاسْمُهُ غَلِيقٌ، وَكَانَ آدَمُ عَلَيْهِ السَّلَامُ حَمَلَهُ مَعَهُ مِنَ الْجَنَّةِ إِلَى الْأَرْضِ فَتَوَارَثَتْهُ الْأَصَاغِرُ عَنِ الْأَكَابِرِ حَتَّى وَصَلَ إِلَى شُعَيْبٍ فَأَعْطَاهُ لِمُوسَى»</p>
+          <p class="arabic-trans">"Tongkat itu dari pohon ās surga, panjangnya 10 hasta setinggi Musa, memiliki dua cabang yang menyala terang di kegelapan, namanya Ghalliq (dalam Al-Baghawi: 'Ullaiq); dibawa Adam dari surga ke bumi dan diwariskan hingga sampai ke Syu'aib lalu diberikan kepada Musa."</p>
+        </div>
+
+        <ul>
+          <li><strong>Al-Kamil fi at-Tarikh</strong> (Ibnu al-Atsir) &amp; <strong>'Ara'is al-Majalis</strong> (Ats-Tsa'labi): Merinci proses penyimpanannya di rumah Nabi Syu'aib AS dan terpilihnya tongkat itu berkali-kali oleh Nabi Musa AS.</li>
+          <li><strong>Al-Hidayah ila Bulugh an-Nihayah</strong> (Makki bin Abi Thalib): Menyebut riwayat berasal dari daun/ranting <em>ās al-jannah</em> dengan variasi ukuran panjang 12 hasta.</li>
+          <li><strong>Tafsir Ar-Razi (Mafatih al-Ghaib):</strong> Menukil pendapat ini pada QS. Al-Baqarah: 60, lalu mengkritisi bahwa memperpanjang pembahasan yang tak bernash qath'i sebaiknya ditinggalkan.</li>
+        </ul>
+      </div>
+
+      <!-- Tab 3: Ullaiq -->
+      <div class="tab-panel card" id="tab-ullaiq">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+          <h3 style="margin:0;">Pohon <em>'Ullaiq</em> (العُلَّيق — Semak Duri / <em>Bramble</em>)</h3>
+          <span class="badge badge-purple">Terkait Pohon Wahyu &amp; Penamaan</span>
+        </div>
+        <p>
+          <strong>'Ullaiq</strong> adalah tumbuhan semak berduri merambat. Dalam literatur tafsir, penyebutan <em>'ullaiq</em> paling sering merujuk pada <strong>pohon tempat Nabi Musa AS melihat api dan diseru oleh Allah SWT</strong> di Lembah Suci Thuwa (QS. Al-Qashash: 30), meskipun sebagian riwayat juga menamakan tongkatnya dengan lafaz serupa.
+        </p>
+
+        <div class="arabic-box">
+          <div style="font-size:0.84rem; font-weight:700; color:var(--primary); margin-bottom:6px;">
+            1. Tafsir Ath-Thabari (Jami' al-Bayan) — QS. Al-Qashash: 30
+          </div>
+          <p class="arabic-text">«أَنَّ مُوسَى خَرَجَ نَحْوَ النَّارِ، فَإِذَا هِيَ شَجَرَةٌ مِنَ الْعُلَّيْقِ، وَبَعْضُ أَهْلِ الْكِتَابِ يَقُولُ: هِيَ عَوْسَجَةٌ»</p>
+          <p class="arabic-trans">Riwayat Ibnu Ishaq, dari sebagian ahli ilmu: "Musa keluar menuju api itu, ternyata itu adalah pohon dari jenis 'ullaiq; sedangkan sebagian Ahli Kitab mengatakan itu adalah pohon 'ausaj."</p>
+        </div>
+
+        <ul>
+          <li><strong>Tafsir Al-Qurthubi (Al-Jami' li Ahkam al-Qur'an):</strong> Pada QS. Al-Qashash, Al-Qurthubi merekam perbedaan mufasir tentang pohon tempat Musa diseru: <em>'ullaiq</em>, <em>samurah</em> (akasia), atau <em>'ausaj</em>, tanpa memastikan jenis kayu tongkat Musa AS.</li>
+          <li><strong>Tafsir Al-Baghawi &amp; Ats-Tsa'labi (QS. Al-Baqarah: 60):</strong> Menyebut kata <em>'Ullaiq</em> (atau varian tulisan <em>Ghalliq</em>) sebagai nama khusus dari tongkat Nabi Musa AS dalam nukilan kisah <em>ās al-jannah</em>.</li>
+        </ul>
+      </div>
+
+      <!-- Tab 4: Lauz -->
+      <div class="tab-panel card" id="tab-lauz">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+          <h3 style="margin:0;">Kayu <em>Al-Lauz al-Murr</em> (اللوز المر — Pohon Almond Pahit)</h3>
+          <span class="badge badge-red">Kisah Populer / Tidak Utama di Tafsir</span>
+        </div>
+        <p>
+          Dalam sebagian literatur kisah para nabi (<em>qishash</em>), buku sejarah populer, dan riwayat-riwayat Israiliyyat yang tersebar di luar kitab tafsir induk, muncul penyebutan bahwa tongkat yang diwariskan kepada Nabi Syu'aib dan Nabi Musa AS berasal dari kayu <strong>almond pahit (<em>al-lauz al-murr</em>)</strong>—atau dikaitkan dengan pohon surga/<em>Thuba</em> yang dapat menumbuhkan buah almond saat ditancapkan.
+        </p>
+        <div class="callout" style="margin-top:14px; margin-bottom:0; border-left-color:var(--danger); background:var(--danger-soft);">
+          <strong style="color:var(--danger);">Catatan Verifikasi Maktabah Syamilah:</strong> Penyebutan kayu <em>al-lauz</em> sebagai bahan tongkat Nabi Musa AS <strong>tidak ditemukan sebagai riwayat pegangan</strong> dalam kitab-kitab tafsir <em>bil-ma'tsur</em> utama seperti <em>Ath-Thabari</em>, <em>Ibnu Katsir</em>, <em>Al-Qurthubi</em>, maupun <em>Ad-Durr al-Mantsur</em>. Oleh karena itu, pendapat ini berstatus riwayat sekunder/kisah lemah.
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Quran Ayah Map -->
+    <section id="ayat">
+      <div class="section-head">
+        <div>
+          <h2>4. Peta Ayat Al-Qur'an tentang Tongkat (عَصَا) Nabi Musa AS</h2>
+          <p class="section-sub">Filter berdasarkan jenis peristiwa atau mukjizat yang menyertai kata <em>'ashā</em>.</p>
+        </div>
+      </div>
+
+      <div class="timeline-toggle" id="ayah-filters">
+        <button class="pill-btn active" data-filter="all">Semua (10 Ayat)</button>
+        <button class="pill-btn" data-filter="ular">Ular &amp; Mengalahkan Sihir</button>
+        <button class="pill-btn" data-filter="air">Memancarkan Air (Batu)</button>
+        <button class="pill-btn" data-filter="laut">Membelah Laut Merah</button>
+        <button class="pill-btn" data-filter="harian">Fungsi Harian &amp; Wahyu Awal</button>
+      </div>
+
+      <div class="quran-grid" id="quran-grid"></div>
+    </section>
+
+    <!-- Section 5: Directory of Shamela Books -->
+    <section id="kitab">
+      <div class="section-head">
+        <div>
+          <h2>5. Direktori Kitab Tafsir &amp; Tarikh (Maktabah Syamilah)</h2>
+          <p class="section-sub">Cari berdasarkan nama kitab, pengarang, atau kata kunci jenis pohon.</p>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" class="search-input" id="book-search" placeholder="Cari kitab, pengarang, atau kata kunci (misal: Thabari, Baghawi, عوسج, آس)..." />
+        <button class="pill-btn active" data-cat="all">Semua</button>
+        <button class="pill-btn" data-cat="tafsir">Kitab Tafsir</button>
+        <button class="pill-btn" data-cat="tarikh">Kitab Tarikh &amp; Qishash</button>
+      </div>
+
+      <div class="table-wrap">
+        <table id="books-table">
+          <thead>
+            <tr>
+              <th>Nama Kitab</th>
+              <th>Pengarang</th>
+              <th>Kategori</th>
+              <th>Lokasi Pembahasan</th>
+              <th>Keterangan Jenis Kayu / Sikap Kitab</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 6: Scholarly Stance & FAQ -->
+    <section id="ulama">
+      <div class="section-head">
+        <div>
+          <h2>6. Sikap Ilmiah Ulama Muhaqqiq &amp; Catatan Kritis</h2>
+          <p class="section-sub">Bagaimana para imam tafsir dan sejarawan menyikapi perbedaan riwayat di atas?</p>
+        </div>
+      </div>
+
+      <div class="diagram-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 18px;">
+        <div class="card">
+          <span class="badge badge-blue">Tafsir Ar-Razi (Mafatih al-Ghaib)</span>
+          <h3 style="margin: 10px 0 8px;">Imam Fakhruddin ar-Razi</h3>
+          <p style="color: var(--muted); margin: 0;">
+            Setelah menukil riwayat <em>ās al-jannah</em> pada QS. Al-Baqarah: 60, beliau menegaskan bahwa bersikap diam (<em>sukut</em>) terhadap rincian yang tidak memiliki nash mutawatir dan tidak berkaitan dengan amal syariat adalah sikap yang lebih utama dan wajib didahulukan.
+          </p>
+        </div>
+        <div class="card">
+          <span class="badge badge-green">Tafsir Al-Qurthubi (Al-Jami')</span>
+          <h3 style="margin: 10px 0 8px;">Imam Al-Qurthubi</h3>
+          <p style="color: var(--muted); margin: 0;">
+            Menjelaskan bahwa Allah SWT sengaja menyamarkan jenis kayu tongkat Nabi Musa AS di dalam Al-Qur'an karena tidak ada hukum taklifi yang bergantung pada pengetahuan mengenai jenis pohon tersebut.
+          </p>
+        </div>
+        <div class="card">
+          <span class="badge badge-amber">Tafsir &amp; Al-Bidayah wa an-Nihayah</span>
+          <h3 style="margin: 10px 0 8px;">Al-Hafizh Ibnu Katsir</h3>
+          <p style="color: var(--muted); margin: 0;">
+            Memaparkan kisah kenabian Musa AS secara luas sambil menyaring riwayat-riwayat Israiliyyat. Rincian tentang panjang tongkat, asal surga, atau jenis pohon tertentu tidak ditetapkan sebagai akidah karena tidak bersumber dari hadis shahih Nabi ﷺ.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-item open">
+        <button class="accordion-trigger">
+          <span>Mengapa sebagian riwayat menyebut pohon tempat diseru wahyu ikut dikaitkan dengan bahan tongkat?</span>
+          <span>▾</span>
+        </button>
+        <div class="accordion-body">
+          Dalam <em>Tafsir Ath-Thabari</em> (QS. Al-Qashash: 30), riwayat Qatadah menggabungkan keduanya secara eksplisit: <em>"Tongkat Musa dari 'ausaj, dan pohon tempat Musa diseru juga dari 'ausaj."</em> Sementara riwayat Ibnu Ishaq hanya menjelaskan bahwa pohon tempat Musa melihat api adalah pohon <em>'ullaiq</em> (dan sebagian Ahli Kitab menyebutnya <em>'ausaj</em>). Karena itulah kedua istilah ini kerap dibahas bersamaan di kitab tafsir.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Apakah pendapat "Ās al-Jannah" bertentangan dengan pendapat "'Ausaj"?</span>
+          <span>▾</span>
+        </button>
+        <div class="accordion-body">
+          Secara sumber, keduanya berasal dari jalur riwayat yang berbeda. Riwayat <em>'Ausaj</em> merupakan atsar tabi'in yang mengaitkannya dengan tumbuhan gurun di sekitar Madyan/Sinai, sedangkan riwayat <em>Ās al-Jannah</em> berasal dari khabar sejarah/Israiliyyat tentang benda-benda surga yang turun bersama Nabi Adam AS. Karena tidak ada satu pun yang bersumber dari hadis marfu' shahih, ulama tidak mewajibkan memilih salah satunya sebagai kepastian mutlak.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Bagaimana dengan ayat QS. Thaha: 69 dan QS. Saba': 14?</span>
+          <span>▾</span>
+        </button>
+        <div class="accordion-body">
+          Pada <strong>QS. Thaha: 69</strong> (<em>وَأَلْقِ مَا فِي يَمِينِكَ</em> — "Lemparkanlah apa yang ada di tangan kananmu"), objeknya adalah tongkat Nabi Musa AS, tetapi redaksi ayat tidak memakai lafaz <em>'ashā</em> secara tekstual. Adapun pada <strong>QS. Saba': 14</strong> digunakan kata <em>minsa'atahū</em> (<em>مِنسَأَتَهُ</em>), yang merujuk pada tongkat Nabi Sulaiman AS, bukan Nabi Musa AS.
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Disusun berdasarkan penelusuran kitab-kitab Tafsir &amp; Tarikh di <strong>Maktabah Syamilah (shamela.ws)</strong> · Dokumen HTML Interaktif Mandiri
+    </footer>
+  </main>
+
+  <script>
+    // 1. SVG Diagram Inspector Data
+    const nodeData = {
+      root: {
+        badge: "Peta Epistemologi",
+        badgeClass: "badge-green",
+        title: "Asal Kayu Tongkat Nabi Musa AS",
+        body: "Untuk menjawab pertanyaan jenis kayu/pohon tongkat Nabi Musa AS secara ilmiah, para ulama memisahkan antara nas Al-Qur'an/Hadis shahih, atsar tabi'in dalam tafsir bil-ma'tsur, serta khabar sejarah/Israiliyyat.",
+        arabic: "",
+        trans: "",
+        sources: "Al-Qur'an, Hadis, dan Kitab Turats Maktabah Syamilah"
+      },
+      wahyu: {
+        badge: "Sumber Qath'i",
+        badgeClass: "badge-green",
+        title: "Al-Qur'an & Hadis Shahih",
+        body: "Al-Qur'an menyebut tongkat Musa sebanyak 10 kali memakai kata 'ashā (عصا), dengan penekanan pada fungsi harian (bersandar, menggembala) dan mukjizat (ular, mata air, membelah laut). Tidak ada penyebutan nama pohonnya dalam nas wahyu maupun hadis shahih.",
+        arabic: "﴿وَمَا تِلْكَ بِيَمِينِكَ يَا مُوسَىٰ * قَالَ هِيَ عَصَايَ أَتَوَكَّأُ عَلَيْهَا وَأَهُشُّ بِهَا عَلَىٰ غَنَمِي﴾",
+        trans: "QS. Thaha [20]: 17–18 — Allah hanya memperkenalkan fungsinya tanpa merinci jenis pohonnya.",
+        sources: "QS. Al-Baqarah: 60, Al-A'raf: 107/117/160, Thaha: 18, Asy-Syu'ara: 32/45/63, An-Naml: 10, Al-Qashash: 31"
+      },
+      tafsir: {
+        badge: "Tafsir bil-Ma'tsur",
+        badgeClass: "badge-blue",
+        title: "Atsar Sahabat & Tabi'in",
+        body: "Para imam tafsir bil-ma'tsur meriwayatkan ucapan para tabi'in seperti Qatadah, Sa'id bin Jubair, dan Al-Hakam bin 'Utaibah. Jalur ini cenderung menyebut pohon berduri khas gurun Madyan/Sinai ('Ausaj atau 'Ullaiq).",
+        arabic: "",
+        trans: "",
+        sources: "Tafsir Ath-Thabari, Tafsir Abdurrazzaq, Ibnu Abi Hatim, Ad-Durr al-Mantsur"
+      },
+      tarikh: {
+        badge: "Tarikh & Qishash",
+        badgeClass: "badge-amber",
+        title: "Riwayat Sejarah & Israiliyyat",
+        body: "Kitab-kitab tarikh dan kisah para nabi menukil riwayat turunnya benda-benda surga bersama Nabi Adam AS serta kisah pewarisannya hingga Nabi Syu'aib AS menyerahkannya kepada Musa AS.",
+        arabic: "",
+        trans: "",
+        sources: "Tarikh Ath-Thabari, Al-Muntazham, Al-Kamil fi at-Tarikh, 'Ara'is al-Majalis"
+      },
+      ausaj: {
+        badge: "Pendapat Terkuat (Atsar)",
+        badgeClass: "badge-blue",
+        title: "Pohon 'Ausaj (العَوْسَج)",
+        body: "Semak berduri gurun (boxthorn / Lycium). Ini riwayat paling masyhur di kitab tafsir bil-ma'tsur. Qatadah bahkan menyebut tongkat Musa dan pohon tempat wahyu di Thuwa sama-sama berasal dari 'ausaj.",
+        arabic: "«عَصَا مُوسَى مِنَ الْعَوْسَجِ، وَالشَّجَرَةُ مِنَ الْعَوْسَجِ»",
+        trans: "Atsar Qatadah dalam Tafsir Ath-Thabari (QS. Al-Qashash: 30).",
+        sources: "Tafsir Ath-Thabari, Abdurrazzaq, Ibnu Abi Hatim, Ad-Durr al-Mantsur"
+      },
+      ullaiq: {
+        badge: "Tafsir & Identifikasi Pohon",
+        badgeClass: "badge-purple",
+        title: "Pohon 'Ullaiq (العُلَّيق)",
+        body: "Semak berduri merambat (bramble). Ibnu Ishaq dalam Tafsir Ath-Thabari menyebutnya sebagai pohon tempat Musa melihat api. Sementara Al-Baghawi & Ats-Tsa'labi menyebut 'Ullaiq/Ghalliq sebagai nama tongkat Musa dalam kisah Ās al-Jannah.",
+        arabic: "«فَإِذَا هِيَ شَجَرَةٌ مِنَ الْعُلَّيْقِ، وَبَعْضُ أَهْلِ الْكِتَابِ يَقُولُ: هِيَ عَوْسَجَةٌ»",
+        trans: "Riwayat Ibnu Ishaq dalam Tafsir Ath-Thabari (QS. Al-Qashash: 30).",
+        sources: "Tafsir Ath-Thabari, Tafsir Al-Qurthubi, Tafsir Al-Baghawi"
+      },
+      as: {
+        badge: "Pendapat Kitab Tarikh",
+        badgeClass: "badge-amber",
+        title: "Ās al-Jannah (آس الجنة)",
+        body: "Pohon myrtus dari surga. Dikisahkan dibawa Adam AS turun ke bumi dengan panjang 10 hasta (atau 12 hasta dalam riwayat Makki bin Abi Thalib) dan memiliki dua cabang bercahaya.",
+        arabic: "«وَعَصَا مُوسَى، وَكَانَتْ مِنْ آسِ الْجَنَّةِ، طُولُهَا عَشَرَةُ أَذْرُعٍ عَلَى طُولِ مُوسَى»",
+        trans: "Riwayat dinisbatkan kepada Ibnu Abbas dalam Tarikh Ath-Thabari & Al-Muntazham.",
+        sources: "Tarikh Ath-Thabari, Al-Muntazham, Al-Kamil, Tafsir Al-Baghawi, Ats-Tsa'labi"
+      },
+      lauz: {
+        badge: "Riwayat Sekunder",
+        badgeClass: "badge-red",
+        title: "Al-Lauz al-Murr (اللوز المر)",
+        body: "Kayu almond pahit. Disebut dalam sebagian kitab kisah populer/Israiliyyat (kadang disebut berbuah almond saat ditancapkan), namun tidak menjadi rujukan utama dalam kitab tafsir mu'tabar.",
+        arabic: "",
+        trans: "",
+        sources: "Sebagian literatur Qishash & kisah populer (bukan rujukan tafsir induk)"
+      },
+      muhaqqiq: {
+        badge: "Kesimpulan Metodologis",
+        badgeClass: "badge-green",
+        title: "Sikap Para Ulama Muhaqqiq",
+        body: "Imam Ar-Razi, Al-Qurthubi, dan Ibnu Katsir menekankan bahwa rincian material kayu tongkat Musa AS adalah bagian dari Israiliyyat/khabar tidak qath'i. Tidak ada kewajiban menetapkan salah satunya sebagai keyakinan pasti.",
+        arabic: "",
+        trans: "",
+        sources: "Mafatih al-Ghaib, Tafsir Al-Qurthubi, Tafsir Ibnu Katsir & Al-Bidayah wa an-Nihayah"
+      }
+    };
+
+    const svgNodes = document.querySelectorAll('.svg-node');
+    const inspBadge = document.getElementById('insp-badge');
+    const inspTitle = document.getElementById('insp-title');
+    const inspBody = document.getElementById('insp-body');
+    const inspExtra = document.getElementById('insp-extra');
+    const inspArabic = document.getElementById('insp-arabic');
+    const inspTrans = document.getElementById('insp-trans');
+    const inspSources = document.getElementById('insp-sources');
+
+    svgNodes.forEach(node => {
+      node.addEventListener('click', () => {
+        svgNodes.forEach(n => n.classList.remove('active'));
+        node.classList.add('active');
+        const info = nodeData[node.dataset.node];
+        if (!info) return;
+        inspBadge.className = 'badge ' + info.badgeClass;
+        inspBadge.textContent = info.badge;
+        inspTitle.textContent = info.title;
+        inspBody.textContent = info.body;
+        inspSources.textContent = info.sources;
+        if (info.arabic) {
+          inspExtra.style.display = 'block';
+          inspArabic.textContent = info.arabic;
+          inspTrans.textContent = info.trans;
+        } else {
+          inspExtra.style.display = 'none';
+        }
+      });
+    });
+
+    // 2. Silsilah Timeline Tracks
+    const tracks = {
+      "tarikh-track": [
+        {
+          step: 1,
+          title: "Turun Bersama Nabi Adam AS",
+          tag: "Riwayat Tarikh (Israiliyyat)",
+          tagClass: "badge-amber",
+          desc: "Dalam Tarikh Ath-Thabari & Al-Muntazham, disebutkan Adam AS membawa turun Hajar Aswad dan sebatang tongkat dari Ās al-Jannah (myrtus surga) sepanjang 10 hasta."
+        },
+        {
+          step: 2,
+          title: "Diwariskan Lintas Generasi Nabi",
+          tag: "Tafsir Ats-Tsa'labi & Al-Baghawi",
+          tagClass: "badge-amber",
+          desc: "Tongkat tersebut berpindah tangan dari generasi ke generasi para nabi (tawārathathā al-ashāghir 'an al-akābir) hingga sampai ke negeri Madyan."
+        },
+        {
+          step: 3,
+          title: "Diserahkan Nabi Syu'aib AS",
+          tag: "Al-Kamil & 'Ara'is al-Majalis",
+          tagClass: "badge-amber",
+          desc: "Saat Musa AS bekerja menggembalakan kambing di Madyan, Syu'aib AS memintanya memilih tongkat; berulang kali tangan Musa jatuh pada tongkat warisan Adam AS tersebut."
+        },
+        {
+          step: 4,
+          title: "Mukjizat Nabi Musa AS",
+          tag: "Tsabit dalam Al-Qur'an",
+          tagClass: "badge-green",
+          desc: "Digunakan di Lembah Thuwa, istana Fir'aun, membelah Laut Merah, serta memukul batu di padang sahara hingga memancarkan 12 mata air."
+        }
+      ],
+      "maatsur-track": [
+        {
+          step: 1,
+          title: "Tumbuhan Gurun Madyan / Sinai",
+          tag: "Atsar Tafsir bil-Ma'tsur",
+          tagClass: "badge-blue",
+          desc: "Riwayat Qatadah, Sa'id bin Jubair, dan Al-Hakam bin 'Utaibah menyatakan kayu tongkat berasal dari semak berduri padang pasir ('Ausaj) yang lazim di sekitar Madyan."
+        },
+        {
+          step: 2,
+          title: "Dipakai Menggembalakan Kambing",
+          tag: "Tsabit dalam QS. Thaha: 18",
+          tagClass: "badge-green",
+          desc: "Musa AS menegaskan fungsinya sebagai tongkat gembala biasa: untuk bertumpu saat berjalan dan merontokkan daun makanan kambing."
+        },
+        {
+          step: 3,
+          title: "Pohon Wahyu di Lembah Thuwa",
+          tag: "Tafsir Ath-Thabari (QS. Al-Qashash: 30)",
+          tagClass: "badge-purple",
+          desc: "Qatadah menyebut pohon tempat Musa diseru juga dari 'Ausaj, sementara Ibnu Ishaq menyebut pohon tempat api menyala adalah 'Ullaiq."
+        },
+        {
+          step: 4,
+          title: "Diubah Allah Menjadi Mukjizat",
+          tag: "Tsabit dalam Al-Qur'an",
+          tagClass: "badge-green",
+          desc: "Justru karena awalnya tongkat kayu biasa, perubahannya menjadi ular besar dan alat pembelah lautan menampakkan kemahakuasaan Allah SWT."
+        }
+      ]
+    };
+
+    const silsilahContainer = document.getElementById('silsilah-container');
+    function renderTrack(trackKey) {
+      const items = tracks[trackKey];
+      silsilahContainer.innerHTML = items.map((item, idx) => `
+        <div class="step-card ${idx === 0 ? 'selected' : ''}" onclick="this.parentElement.querySelectorAll('.step-card').forEach(c=>c.classList.remove('selected')); this.classList.add('selected');">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; margin-bottom:8px;">
+            <span class="step-num">${item.step}</span>
+            <span class="badge ${item.tagClass}">${item.tag}</span>
+          </div>
+          <h4 style="margin:0 0 6px; font-size:1rem;">${item.title}</h4>
+          <p style="margin:0; font-size:0.87rem; color:var(--muted);">${item.desc}</p>
+        </div>
+      `).join('');
+    }
+    renderTrack('tarikh-track');
+
+    document.querySelectorAll('.timeline-toggle [data-track]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.timeline-toggle [data-track]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderTrack(btn.dataset.track);
+      });
+    });
+
+    // 3. Tabs for 4 Trees
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // 4. Quran Ayah Map
+    const ayahs = [
+      {
+        surah: "QS. Al-Baqarah [2]: 60",
+        cat: "air",
+        catLabel: "Memancarkan Air",
+        badgeClass: "badge-blue",
+        arabic: "﴿فَقُلْنَا اضْرِب بِّعَصَاكَ الْحَجَرَ ۖ فَانفَجَرَتْ مِنْهُ اثْنَتَا عَشْرَةَ عَيْنًا﴾",
+        note: "Perintah memukul batu dengan tongkat hingga memancar 12 mata air untuk 12 suku Bani Israil."
+      },
+      {
+        surah: "QS. Al-A'raf [7]: 107",
+        cat: "ular",
+        catLabel: "Ular / Sihir",
+        badgeClass: "badge-amber",
+        arabic: "﴿فَأَلْقَىٰ عَصَاهُ فَإِذَا هِيَ ثُعْبَانٌ مُّبِينٌ﴾",
+        note: "Musa AS melemparkan tongkatnya di hadapan Fir'aun dan para pembesarnya, lalu menjadi ular besar nyata."
+      },
+      {
+        surah: "QS. Al-A'raf [7]: 117",
+        cat: "ular",
+        catLabel: "Ular / Sihir",
+        badgeClass: "badge-amber",
+        arabic: "﴿وَأَوْحَيْنَا إِلَىٰ مُوسَىٰ أَنْ أَلْقِ عَصَاكَ ۖ فَإِذَا هِيَ تَلْقَفُ مَا يَأْفِكُونَ﴾",
+        note: "Tongkat Musa AS menelan seluruh tipu daya tali-temali dan tongkat para penyihir Fir'aun."
+      },
+      {
+        surah: "QS. Al-A'raf [7]: 160",
+        cat: "air",
+        catLabel: "Memancarkan Air",
+        badgeClass: "badge-blue",
+        arabic: "﴿وَأَوْحَيْنَا إِلَىٰ مُوسَىٰ إِذِ اسْتَسْقَاهُ قَوْمُهُ أَنِ اضْرِب بِّعَصَاكَ الْحَجَرَ ۖ فَانبَجَسَتْ مِنْهُ اثْنَتَا عَشْرَةَ عَيْنًا﴾",
+        note: "Kisah pemukulan batu ketika kaum Bani Israil meminta air di padang sahara."
+      },
+      {
+        surah: "QS. Thaha [20]: 18",
+        cat: "harian",
+        catLabel: "Fungsi Harian & Wahyu",
+        badgeClass: "badge-green",
+        arabic: "﴿قَالَ هِيَ عَصَايَ أَتَوَكَّأُ عَلَيْهَا وَأَهُشُّ بِهَا عَلَىٰ غَنَمِي وَلِيَ فِيهَا مَآرِبُ أُخْرَىٰ﴾",
+        note: "Jawaban Musa AS kepada Allah mengenai kegunaan harian tongkatnya sebelum diubah menjadi ular (ayat 17–21)."
+      },
+      {
+        surah: "QS. Asy-Syu'ara [26]: 32",
+        cat: "ular",
+        catLabel: "Ular / Sihir",
+        badgeClass: "badge-amber",
+        arabic: "﴿فَأَلْقَىٰ عَصَاهُ فَإِذَا هِيَ ثُعْبَانٌ مُّبِينٌ﴾",
+        note: "Bukti kenabian di hadapan Fir'aun saat tongkat berubah menjadi ular besar yang jelas."
+      },
+      {
+        surah: "QS. Asy-Syu'ara [26]: 45",
+        cat: "ular",
+        catLabel: "Ular / Sihir",
+        badgeClass: "badge-amber",
+        arabic: "﴿فَأَلْقَىٰ مُوسَىٰ عَصَاهُ فَإِذَا هِيَ تَلْقَفُ مَا يَأْفِكُونَ﴾",
+        note: "Tongkat menelan tipuan para penyihir pada hari berkumpulnya masyarakat Mesir."
+      },
+      {
+        surah: "QS. Asy-Syu'ara [26]: 63",
+        cat: "laut",
+        catLabel: "Membelah Laut",
+        badgeClass: "badge-purple",
+        arabic: "﴿فَأَوْحَيْنَا إِلَىٰ مُوسَىٰ أَنِ اضْرِب بِّعَصَاكَ الْبَحْرَ ۖ فَانفَلَقَ فَكَانَ كُلُّ فِرْقٍ كَالطَّوْدِ الْعَظِيمِ﴾",
+        note: "Mukjizat memukul Laut Merah dengan tongkat sehingga terbelah bagaikan gunung raksasa."
+      },
+      {
+        surah: "QS. An-Naml [27]: 10",
+        cat: "harian",
+        catLabel: "Fungsi Harian & Wahyu",
+        badgeClass: "badge-green",
+        arabic: "﴿وَأَنْ أَلْقِ عَصَاكَ ۚ فَلَمَّا رَآهَا تَهْتَزُّ كَأَنَّهَا جَانٌّ وَلَّىٰ مُدْبِرًا﴾",
+        note: "Perintah melempar tongkat saat pengangkatan kenabian, lalu bergerak lincah seperti ular kecil (jaann)."
+      },
+      {
+        surah: "QS. Al-Qashash [28]: 31",
+        cat: "harian",
+        catLabel: "Fungsi Harian & Wahyu",
+        badgeClass: "badge-green",
+        arabic: "﴿وَأَنْ أَلْقِ عَصَاكَ ۚ فَلَمَّا رَآهَا تَهْتَزُّ كَأَنَّهَا جَانٌّ وَلَّىٰ مُدْبِرًا وَلَمْ يُعَقِّبْ﴾",
+        note: "Peristiwa pengukuhan mukjizat tongkat di sisi kanan Lembah Thuwa sebelum diutus kepada Fir'aun."
+      }
+    ];
+
+    const quranGrid = document.getElementById('quran-grid');
+    function renderAyahs(filter) {
+      const list = filter === 'all' ? ayahs : ayahs.filter(a => a.cat === filter);
+      quranGrid.innerHTML = list.map(a => `
+        <div class="ayah-card">
+          <div>
+            <div class="ayah-head">
+              <strong style="color:var(--primary); font-size:0.95rem;">${a.surah}</strong>
+              <span class="badge ${a.badgeClass}">${a.catLabel}</span>
+            </div>
+            <p class="arabic-text" style="font-size:1.22rem; margin-bottom:10px;">${a.arabic}</p>
+          </div>
+          <p style="margin:0; font-size:0.86rem; color:var(--muted); border-top:1px dashed var(--border); padding-top:8px;">${a.note}</p>
+        </div>
+      `).join('');
+    }
+    renderAyahs('all');
+
+    document.querySelectorAll('#ayah-filters [data-filter]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#ayah-filters [data-filter]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderAyahs(btn.dataset.filter);
+      });
+    });
+
+    // 5. Books Directory Table
+    const books = [
+      {
+        name: "Jami' al-Bayan (Tafsir Ath-Thabari)",
+        author: "Imam Muhammad bin Jarir ath-Thabari",
+        cat: "tafsir",
+        loc: "Tafsir QS. Al-Qashash: 30",
+        detail: "Menukil riwayat Qatadah bahwa tongkat Musa dan pohon wahyu dari 'Ausaj (العوسج); serta riwayat Ibnu Ishaq bahwa pohon wahyu dari 'Ullaiq (العليق)."
+      },
+      {
+        name: "Tafsir Abdurrazzaq",
+        author: "Abdurrazzaq ash-Shan'ani",
+        cat: "tafsir",
+        loc: "Kisah Nabi Musa AS",
+        detail: "Meriwayatkan sanad dari Qatadah bahwa tongkat Nabi Musa AS terbuat dari pohon 'Ausaj (العوسج)."
+      },
+      {
+        name: "Ad-Durr al-Mantsur fi at-Tafsir bil-Ma'tsur",
+        author: "Imam Jalaluddin as-Suyuthi",
+        cat: "tafsir",
+        loc: "Tafsir QS. Al-A'raf",
+        detail: "Menukil riwayat Ibnul Mundzir & Ibnu Abi Hatim dari Al-Hakam bin 'Utaibah: tongkat Musa dari 'Ausaj dan pohon itu tak pernah ditundukkan untuk siapa pun sesudahnya."
+      },
+      {
+        name: "Tafsir Ibnu Abi Hatim",
+        author: "Abdurrahman bin Abi Hatim ar-Razi",
+        cat: "tafsir",
+        loc: "Tafsir ayat tongkat Musa",
+        detail: "Menukil atsar dari Sa'id bin Jubair dan Al-Hakam bahwa tongkat Nabi Musa AS berasal dari pohon 'Ausaj."
+      },
+      {
+        name: "Al-Kasyf wa al-Bayan (Tafsir Ats-Tsa'labi)",
+        author: "Abu Ishaq ats-Tsa'labi",
+        cat: "tafsir",
+        loc: "Tafsir QS. Al-Baqarah: 60",
+        detail: "Menyebut tongkat berasal dari Ās al-Jannah (آس الجنة), panjang 10 hasta, bercabang dua bercahaya, bernama Ghalliq, dibawa Adam AS hingga ke Syu'aib AS."
+      },
+      {
+        name: "Ma'alim at-Tanzil (Tafsir Al-Baghawi)",
+        author: "Imam al-Husain al-Baghawi",
+        cat: "tafsir",
+        loc: "Tafsir QS. Al-Baqarah: 60",
+        detail: "Menukil riwayat Ās al-Jannah sepanjang 10 hasta, bercabang dua memancarkan cahaya, disebut bernama 'Ullaiq, diwariskan dari Adam AS hingga Syu'aib AS."
+      },
+      {
+        name: "Mafatih al-Ghaib (Tafsir Ar-Razi)",
+        author: "Imam Fakhruddin ar-Razi",
+        cat: "tafsir",
+        loc: "Tafsir QS. Al-Baqarah: 60",
+        detail: "Menukil pendapat Ās al-Jannah, lalu menegaskan kewajiban diam (sukut) dari perkara tak bernash mutawatir."
+      },
+      {
+        name: "Al-Jami' li Ahkam al-Qur'an (Tafsir Al-Qurthubi)",
+        author: "Imam al-Qurthubi",
+        cat: "tafsir",
+        loc: "Tafsir QS. Al-Qashash & Surah Musa",
+        detail: "Tidak memastikan jenis kayu tongkat karena tidak berdampak hukum taklifi; hanya menukil khilaf pohon tempat wahyu ('Ullaiq, Samurah, 'Ausaj)."
+      },
+      {
+        name: "Al-Hidayah ila Bulugh an-Nihayah",
+        author: "Makki bin Abi Thalib",
+        cat: "tafsir",
+        loc: "Kisah tongkat Nabi Musa AS",
+        detail: "Menyebut riwayat berasal dari daun/ranting Ās al-Jannah dengan ukuran panjang 12 hasta."
+      },
+      {
+        name: "Tarikh ar-Rusul wa al-Muluk (Tarikh Ath-Thabari)",
+        author: "Imam Muhammad bin Jarir ath-Thabari",
+        cat: "tarikh",
+        loc: "Bab Nabi Adam AS",
+        detail: "Menukil riwayat Ibnu Abbas RA bahwa bersama Adam AS diturunkan Hajar Aswad dan tongkat Musa dari Ās al-Jannah sepanjang 10 hasta."
+      },
+      {
+        name: "Al-Muntazham fi Tarikh al-Muluk wa al-Umam",
+        author: "Imam Ibnul Jauzi",
+        cat: "tarikh",
+        loc: "Bab Penyebutan Adam AS",
+        detail: "Menukil jalur Abu Shalih dari Ibnu Abbas RA tentang turunnya Hajar Aswad dan tongkat Musa dari Ās al-Jannah."
+      },
+      {
+        name: "Al-Kamil fi at-Tarikh & 'Ara'is al-Majalis",
+        author: "Ibnu al-Atsir & Ats-Tsa'labi",
+        cat: "tarikh",
+        loc: "Kisah Syu'aib & Musa AS",
+        detail: "Merinci pewarisan tongkat dari Ās al-Jannah hingga Nabi Syu'aib AS dan terpilihnya tongkat itu oleh Nabi Musa AS."
+      },
+      {
+        name: "Al-Bidayah wa an-Nihayah & Tafsir Ibnu Katsir",
+        author: "Al-Hafizh Ibnu Katsir",
+        cat: "tarikh",
+        loc: "Kisah Nabi Musa AS",
+        detail: "Menukil atsar 'Ausaj / 'Ullaiq pada pohon wahyu dan bersikap kritis menyaring rincian Israiliyyat terkait material kayu tongkat."
+      }
+    ];
+
+    const tbody = document.querySelector('#books-table tbody');
+    const searchInput = document.getElementById('book-search');
+    let activeBookCat = 'all';
+
+    function renderBooks() {
+      const q = searchInput.value.trim().toLowerCase();
+      const filtered = books.filter(b => {
+        const matchCat = activeBookCat === 'all' || b.cat === activeBookCat;
+        const matchQuery = !q || (b.name + b.author + b.loc + b.detail).toLowerCase().includes(q);
+        return matchCat && matchQuery;
+      });
+      tbody.innerHTML = filtered.map(b => `
+        <tr>
+          <td><strong>${b.name}</strong></td>
+          <td>${b.author}</td>
+          <td><span class="badge ${b.cat === 'tafsir' ? 'badge-blue' : 'badge-amber'}">${b.cat === 'tafsir' ? 'Tafsir' : 'Tarikh / Qishash'}</span></td>
+          <td>${b.loc}</td>
+          <td>${b.detail}</td>
+        </tr>
+      `).join('');
+    }
+    renderBooks();
+
+    searchInput.addEventListener('input', renderBooks);
+    document.querySelectorAll('.search-bar [data-cat]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.search-bar [data-cat]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeBookCat = btn.dataset.cat;
+        renderBooks();
+      });
+    });
+
+    // 6. Accordion
+    document.querySelectorAll('.accordion-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
